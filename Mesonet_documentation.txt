@@ -1,0 +1,95 @@
+MDF/MTS Files
+
+Mesonet MDF and MTS files are space delimited files used to display data in WeatherScope.  MDF files display data for all stations for a given time, while MTS files display data for 1 station for a given UTC day.  This is the standard file format used for Mesonet data.
+
+ 
+
+File Header
+
+The MDF/MTS header consists of 3 lines.  The first line of the file contains copyright information.  The second line lists the number of variables in the file (i.e., number of columns not including STID, STNM, and TIME), year, month, day, hour, minute, and second.  The date is listed in UTC and serves as the base time for the data file.  The third line lists the variable ID for each data column.
+
+ 
+
+Special Notes
+
+-The 0000 UTC observation stores the previous day's accumulated rainfall.
+
+-Frozen precipitation is measured at the time of thaw.  Some snowmelt may never be observed due to factors including sublimation and blowing snow.
+
+-Data quality is frequently re-assessed.  On rare occasions, some quality assurance flags may change in the months following your data request.
+
+-For use of soil moisture measurements, see the Soil Moisture document.
+
+ 
+
+Variables
+
+Name	ID	Unit	Description
+Station ID	STID	 	Station ID
+Station Number	STNM	 	Station Number
+Time	TIME	minutes after base time	Minutes after base time (typically 0000 UTC)
+Relative Humidity	RELH	percent	5-minute averaged relative humidity at 1.5m.
+Air Temperature	TAIR	degrees Celsius	5-minute averaged air temperature at 1.5m.
+Wind Speed	WSPD	meters per second	5-minute averaged wind speed at 10m.
+Wind Vector	WVEC	meters per second	5-minute averaged wind velocity (speed and direction accounted for) at 10m.
+Wind Direction	WDIR	degrees	5-minute averaged wind direction at 10m.
+Wind Direction Standard Deviation	WDSD	degrees	Standard deviation of wind direction during the 5-minute interval.
+Wind Speed Standard Deviation	WSSD	meters per second	Standard deviation of wind speed during the 5-minute interval.
+Maximum Wind Speed	WMAX	meters per second	Highest 3-second wind speed at 10m sample.
+Precipitation	RAIN	millimeters	Liquid precipitation accumulation since 0000 UTC. Frozen precipitation cannot be recorded until it melts; therefore, precipitation from snow may not be recorded until several days after the snow event.
+Station Atmospheric Pressure	PRES	millibars	5-minute averaged atmospheric pressure.
+Solar Radiation	SRAD	watts per square meter	5-minute averaged downwelling global solar radiation.
+Air Temperature at 9m	TA9M	degrees Celsius	5-minute averaged air temperature at 9m
+2m Wind Speed	WS2M	meters per second	5-minute averaged wind speed at 2m
+Temperature Under Native Vegetation at 10cm	TS10	degrees Celsius	15-minute averaged temperature under native vegetation at 10cm.
+Temperature Under Bare Soil at 10cm	TB10	degrees Celsius	15-minute averaged temperature under bare soil at 10cm.
+Temperature Under Native Vegetation at 5cm	TS05	degrees Celsius	15-minute averaged temperature under native vegetation at 5cm.
+Temperature Under Bare Soil at 5cm	TB05	degrees Celsius	15-minute averaged temperature under bare soil at 5cm. This variable is only available prior to December 1, 2013.
+Temperature Under Native Vegetation at 25cm	TS25	degrees Celsius	15-minute averaged temperature under native vegetation at 25cm. This variable is only available after and including December 1, 2013.
+Temperature Under Native Vegetation at 30cm	TS30	degrees Celsius	15-minute averaged temperature under native vegetation at 30cm. This variable is only available prior to December 1, 2013.
+Temperature Under Native Vegetation at 60cm	TS60	degrees Celsius	15-minute averaged temperature under native vegetation at 60cm. This variable is only available after and including December 1, 2013.
+Soil Moisture Calibrated Delta-T at 5cm	TR05	degrees Celsius	Calibrated change in temperature of soil over time after a heat pulse is introduced. Used to calculate soil water potential, fractional water index, or volumetric water.
+Soil Moisture Calibrated Delta-T at 25cm	TR25	degrees Celsius	Calibrated change in temperature of soil over time after a heat pulse is introduced. Used to calculate soil water potential, fractional water index, or volumetric water.
+Soil Moisture Calibrated Delta-T at 60cm	TR60	degrees Celsius	Calibrated change in temperature of soil over time after a heat pulse is introduced. Used to calculate soil water potential, fractional water index, or volumetric water.
+ 
+
+ 
+
+Missing Data Values
+
+Value	Description
+-999	Data flagged as bad by quality assurance routines.
+-998	Sensor not installed.
+-997	Cannot compute value due to missing calibration coefficient(s).
+-996	Station did not report (missing).
+-995	Data not reported on this time interval (e.g., soil temperature only reports every 15 minutes and is not available at 25 minutes after the hour).
+-994	Value too wide to fit in column.
+Convert UTC to Central Time
+
+
+Converting UTC time to Local Time
+UTC / Z	CST	CDT
+0000 UTC	1800 (6 p.m.) CST	1900 (7 p.m.) CDT
+0100 UTC	1900 (7 p.m.) CST	2000 (8 p.m.) CDT
+0200 UTC	2000 (8 p.m.) CST	2100 (9 p.m.) CDT
+0300 UTC	2100 (9 p.m.) CST	2200 (10 p.m.) CDT
+0400 UTC	2200 (10 p.m.) CST	2300 (11 p.m.) CDT
+0500 UTC	2300 (11 p.m.) CST	0000 (midnight) CDT
+0600 UTC	0000 (midnight) CST	0100 (1 a.m.) CDT
+0700 UTC	0100 (1 a.m.) CST	0200 (2 a.m.) CDT
+0800 UTC	0200 (2 a.m.) CST	0300 (3 a.m.) CDT
+0900 UTC	0300 (3 a.m.) CST	0400 (4 a.m.) CDT
+1000 UTC	0400 (4 a.m.) CST	0500 (5 a.m.) CDT
+1100 UTC	0500 (5 a.m.) CST	0600 (6 a.m.) CDT
+1200 UTC	0600 (6 a.m.) CST	0700 (7 a.m.) CDT
+1300 UTC	0700 (7 a.m.) CST	0800 (8 a.m.) CDT
+1400 UTC	0800 (8 a.m.) CST	0900 (9 a.m.) CDT
+1500 UTC	0900 (9 a.m.) CST	1000 (10 a.m.) CDT
+1600 UTC	1000 (10 a.m.) CST	1100 (11 a.m.) CDT
+1700 UTC	1100 (11 a.m.) CST	1200 (noon) CDT
+1800 UTC	1200 (noon) CST	1300 (1 p.m.) CDT
+1900 UTC	1300 (1 p.m.) CST	1400 (2 p.m.) CDT
+2000 UTC	1400 (2 p.m.) CST	1500 (3 p.m.) CDT
+2100 UTC	1500 (3 p.m.) CST	1600 (4 p.m.) CDT
+2200 UTC	1600 (4 p.m.) CST	1700 (5 p.m.) CDT
+2300 UTC	1700 (5 p.m.) CST	1800 (6 p.m.) CDT

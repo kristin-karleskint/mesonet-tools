@@ -1,2 +1,2 @@
-# mesonet-tools
-Tools for importing and using mesonet rain data
+# PyMesonet
+Tools to manipulate data from the Oklahoma Mesonet.
